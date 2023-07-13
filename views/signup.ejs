@@ -1,0 +1,39 @@
+<%- include('shared/header.ejs') -%> <%- include('shared/nav.ejs') -%>
+<div class="container">
+  <form name="signup" method="post" action="/signup">
+    <br />
+    <br />
+    <label>Name</label>
+    <input type="text" id="name" name="name" placeholder="Name" />
+    <br /><br />
+    <label>Email</label>
+    <input type="email" id="email" name="email" placeholder="Email" />
+    <br /><br />
+    <label>Gender</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="other"> Other
+    <br /><br />
+    <label>Age</label>
+    <input type="number" id="age" name="age" placeholder="age" />
+    <br /><br />
+    <label>Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Password"
+    />
+    <label>Confirm Password</label>
+    <input
+      type="password"
+      id="passwordconfirm"
+      name="passwordconfirm"
+      placeholder="Confirm Password"
+    />
+    <br /><br />
+    <button type="submit">Submit</button>
+    <br /><br />
+  </form>
+</div>
+<%- include('shared/footer.ejs') -%>
