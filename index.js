@@ -224,11 +224,11 @@ myApp.get("/logout", function (req, res) {
   res.redirect("/login");
 });
 
-myApp.get("/professional/signup", function (req, res) {
+myApp.get("/professionalsignup", function (req, res) {
   res.render("professionalsignup");
 });
 
-myApp.post("/professional/signup", validateProfessionals, async (req, res) => {
+myApp.post("/professionalsignup", validateProfessionals, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).render("professionalsignup", { errors: errors.array() });
@@ -244,16 +244,16 @@ myApp.post("/professional/signup", validateProfessionals, async (req, res) => {
 
   await newProfessional.save();
 
-  return res.status(201).redirect("/professional/dashboard");
+  return res.status(201).redirect("/professionaldashboard");
 });
 
 // Route for professional login page
-myApp.get("/professional/login", function (req, res) {
+myApp.get("/professionallogin", function (req, res) {
   res.render("professionallogin");
 });
 
 // Route for handling professional login form submission
-myApp.post("/professional/login", async (req, res) => {
+myApp.post("/professionallogin", async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -276,26 +276,26 @@ myApp.post("/professional/login", async (req, res) => {
     req.session.username = username;
     req.session.loggedIn = true;
 
-    res.redirect("/professional/dashboard");
+    res.redirect("/professionaldashboard");
   } catch (err) {
     return res.status(500).render("professionallogin", { error: "Error during login." });
   }
 });
 
 // Route for professional logout
-myApp.get("/professional/logout", function (req, res) {
+myApp.get("/professionallogout", function (req, res) {
   // Clear the session variables to log out the professional
   req.session.username = "";
   req.session.loggedIn = false;
-  res.redirect("/professional/login");
+  res.redirect("/professionallogin");
 });
 
 // Route for SubMT signup page
-myApp.get("/submt/signup", function (req, res) {
+myApp.get("/submtsignup", function (req, res) {
   res.render("submtsignup");
 });
 
-myApp.post("/submt/signup", validateSubMT, async (req, res) => {
+myApp.post("/submtsignup", validateSubMT, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).render("submtsignup", { errors: errors.array() });
@@ -309,15 +309,15 @@ myApp.post("/submt/signup", validateSubMT, async (req, res) => {
 
   await newSubMT.save();
 
-  return res.status(201).redirect("/submt/dashboard");
+  return res.status(201).redirect("/submtdashboard");
 });
 
 // Route for SubMP signup page
-myApp.get("/submp/signup", function (req, res) {
+myApp.get("/submpsignup", function (req, res) {
   res.render("submpsignup");
 });
 
-myApp.post("/submp/signup", validateSubMP, async (req, res) => {
+myApp.post("/submpsignup", validateSubMP, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).render("submpsignup", { errors: errors.array() });
@@ -331,15 +331,15 @@ myApp.post("/submp/signup", validateSubMP, async (req, res) => {
 
   await newSubMP.save();
 
-  return res.status(201).redirect("/submp/dashboard");
+  return res.status(201).redirect("/submpdashboard");
 });
 
 // Route for SubWP signup page
-myApp.get("/subwp/signup", function (req, res) {
+myApp.get("/subwpsignup", function (req, res) {
   res.render("subwpsignup");
 });
 
-myApp.post("/subwp/signup", validateSubWP, async (req, res) => {
+myApp.post("/subwpsignup", validateSubWP, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).render("subwpsignup", { errors: errors.array() });
@@ -353,15 +353,15 @@ myApp.post("/subwp/signup", validateSubWP, async (req, res) => {
 
   await newSubWP.save();
 
-  return res.status(201).redirect("/subwp/dashboard");
+  return res.status(201).redirect("/subwpdashboard");
 });
 
 // Route for SubYP signup page
-myApp.get("/subyp/signup", function (req, res) {
+myApp.get("/subypsignup", function (req, res) {
   res.render("subypsignup");
 });
 
-myApp.post("/subyp/signup", validateSubYP, async (req, res) => {
+myApp.post("/subypsignup", validateSubYP, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).render("subypsignup", { errors: errors.array() });
@@ -375,7 +375,7 @@ myApp.post("/subyp/signup", validateSubYP, async (req, res) => {
 
   await newSubYP.save();
 
-  return res.status(201).redirect("/subyp/dashboard");
+  return res.status(201).redirect("/subypdashboard");
 });
 
 myApp.get("/contactus", function (req, res) {
