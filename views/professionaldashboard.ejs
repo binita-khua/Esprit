@@ -1,0 +1,45 @@
+<%- include('shared/header.ejs') -%>
+<%- include('shared/nav.ejs') -%>
+
+<div class="container">
+  <div class="text-right mb-2">
+    <br />
+    <br />
+    <a href="/logout" class="btn btn-danger" style="text-align: right">Logout</a>
+  </div>
+  <br />
+  <br />
+  <br />
+
+  <div class="container">
+    <h1>Welcome to Your Professional Dashboard</h1>
+    <br />
+
+    <% if (loggedIn) { %>
+      <% if (assignedUsers.length > 0) { %>
+        <h2>Users Assigned to You</h2>
+        <ul>
+          <% assignedUsers.forEach(user => { %>
+            <li>
+              <p><strong>Username:</strong> <%= user.username %></p>
+              <p><strong>Email:</strong> <%= user.email %></p>
+              <p><strong>Gender:</strong> <%= user.gender %></p>
+              <p><strong>Age:</strong> <%= user.age %></p>
+              <p><strong>Description:</strong> <%= user.description %></p>
+              <form action="/schedule-session/<%= user._id %>" method="get">
+                <button type="submit" class="btn btn-primary">Schedule Session</button>
+              </form>
+            </li>
+            <br />
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>No users assigned to you.</p>
+      <% } %>
+    <% } else { %>
+      <p>Error loading professional information.</p>
+    <% } %>
+  </div>
+
+  <%- include('shared/footer.ejs') -%>
+</div>

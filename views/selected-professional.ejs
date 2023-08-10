@@ -1,0 +1,36 @@
+<%- include('shared/header.ejs') -%>
+<%- include('shared/nav.ejs') -%>
+
+<div class="container">
+  <div class="text-right mb-2">
+    <br />
+    <br />
+    <a href="/logout" class="btn btn-danger" style="text-align: right;">Logout</a>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h1>Your Selected Professional</h1>
+  <br>
+  <% if (loggedIn && user.selectedProfessional) { %>
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">Name: <%= user.selectedProfessional.name.replace(/\b\w/g, c => c.toUpperCase()) %></p>
+        <p class="card-text">Phone: <%= user.selectedProfessional.phone %></p>
+        <% if (user.selectedProfessional.description) { %>
+          <p class="card-text">Description: <%= user.selectedProfessional.description.replace(/\b\w/g, c => c.toUpperCase()) %></p>
+        <% } %>
+        <% if (user.selectedProfessional.degree) { %>
+          <p class="card-text">Degree: <%= user.selectedProfessional.degree.replace(/\b\w/g, c => c.toUpperCase()) %></p>
+        <% } %>
+        <% if (user.selectedProfessional.specialization) { %>
+          <p class="card-text">Specialization: <%= user.selectedProfessional.specialization.replace(/\b\w/g, c => c.toUpperCase()) %></p>
+        <% } %>
+      </div>
+    </div>
+  <% } else { %>
+    <p>No selected professional available.</p>
+  <% } %>
+</div>
+
+<%- include('shared/footer.ejs') -%>

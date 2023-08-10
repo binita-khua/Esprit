@@ -1,34 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Esprit</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body>
-		<div id="page-wrapper">
-
-			<!-- Header -->
-				<div id="header-wrapper">
-					<div class="container">
-						<div class="row">
-							<div class="col-12">
-
-								<header id="header">
-									<h1><a href="home.html" id="logo">Esprit</a></h1>
-									<nav id="nav">
-										<a href="index.html" class="current-page-item">Home</a>
-										<a href="twocolumn1.html">Login</a>
-										<a href="twocolumn2.html">Register</a>
-										<a href="onecolumn.html">Services</a>
-										<a href="threecolumn.html">Contact Us</a>
-									</nav>
-								</header>
-
-							</div>
-						</div>
-					</div>
+<%- include('shared/header.ejs') -%> <%- include('shared/nav.ejs') -%>
 			<!-- Banner -->
 				<div id="banner-wrapper">
 					<div class="container">
@@ -149,24 +119,4 @@
 						</div>
 					</div>
 				</div>
-
-			<!-- Footer -->
-
-			<div id="footer-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-
-							<div id="copyright">
-								&copy; Esprit 2023</a>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-	</body>
-</html>
+				<%- include('shared/footer.ejs') -%>

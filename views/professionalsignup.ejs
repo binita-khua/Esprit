@@ -1,0 +1,54 @@
+<%- include('shared/header.ejs') -%>
+<%- include('shared/nav.ejs') -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <br><br>
+      <h1>Professional Signup</h1>
+      <br><br>
+      <% if (errors && errors.length > 0) { %>
+        <div class="error">
+          <ul>
+            <% errors.forEach(error => { %>
+              <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>
+      <form action="/professionalsignup" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+        <br><br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+        <br><br>
+        
+        <label for="degree">Degree:</label>
+        <input type="text" id="degree" name="degree" required>
+        <br><br>
+        
+        <label for="specialization">Specialization:</label>
+        <input type="text" id="specialization" name="specialization" required>
+        <br><br>
+        
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('shared/footer.ejs') -%>

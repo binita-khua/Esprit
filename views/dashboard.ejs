@@ -1,0 +1,38 @@
+<%- include('shared/header.ejs') -%>
+<%- include('shared/nav.ejs') -%>
+
+<div class="container">
+  <div class="text-right mb-2"><br> <br>
+    <a href="/logout" class="btn btn-danger" style="text-align: right;">Logout</a>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h1>Welcome to the Dashboard</h1>
+  <br>
+  <% if (professionals.length > 0) { %>
+    <div class="row">
+      <% professionals.forEach(professional => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">Name: <%= professional.name.replace(/\b\w/g, c => c.toUpperCase()) %></p>
+              <p class="card-text">Phone: <%= professional.phone %></p>
+              <p class="card-text">Description: <%= professional.description.replace(/\b\w/g, c => c.toUpperCase()) %></p>
+              <p class="card-text">Degree: <%= professional.degree %></p>
+              <p class="card-text">Specialization: <%= professional.specialization %></p>
+              <form action="/select-professional" method="post">
+                <input type="hidden" name="professionalId" value="<%= professional._id %>">
+                <button type="submit" class="btn btn-primary">Select Professional</button>
+              </form>              
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p>No professionals available.</p>
+  <% } %>
+</div>
+
+<%- include('shared/footer.ejs') -%>
