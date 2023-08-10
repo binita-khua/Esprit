@@ -472,6 +472,10 @@ myApp.post("/remove-professional", async (req, res) => {
   }
 });
 
+myApp.get("/sessionconfirm", function (req, res) {
+  res.render("sessionconfirm", { errors: [] });
+});
+
 
 myApp.get("/logout", function (req, res) {
   // Clear the session variables to log out the user

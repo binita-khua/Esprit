@@ -2182,7 +2182,7 @@ ul.link-list li:first-child {
                 id="professionalId"
                 value="<%= professional._id %>"
               />
-              <button type="submit" id="scheduleButton" class="btn btn-primary">
+              <button type="button" id="scheduleButton" class="btn btn-primary">
                 Schedule Session
               </button>
               <button type="button" id="removeProfessionalButton" class="btn btn-danger">
@@ -2200,13 +2200,13 @@ ul.link-list li:first-child {
         document.getElementById("scheduleButton").addEventListener("click", async () => {
   // Redirect the user to the Outlook Calendar login page
   window.location.href = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?" +
-    "client_id=e1211f97-83b5-44a1-8d6f-983b594e2ce7" + // Replace with your actual client ID
+    "client_id=e1211f97-83b5-44a1-8d6f-983b594e2ce7" +
     "&response_type=code" +
-    "&redirect_uri=YOUR_REDIRECT_URI" + // Replace with your actual redirect URI
+    "&redirect_uri=https://outlook.office365.com/calendar" +
     "&response_mode=query" +
     "&scope=offline_access%20Calendars.ReadWrite" +
-    "&state=state_parameter_here" + // Add any state parameter you need
-    "&prompt=login";
+    "&prompt=login" +
+    "&post_logout_redirect_uri=http://localhost:8080/schedule-session";
 });
 
           document

@@ -26,9 +26,15 @@
               <p><strong>Gender:</strong> <%= user.gender %></p>
               <p><strong>Age:</strong> <%= user.age %></p>
               <p><strong>Description:</strong> <%= user.description %></p>
-              <form action="/schedule-session/<%= user._id %>" method="get">
-                <button type="submit" class="btn btn-primary">Schedule Session</button>
-              </form>
+              <form id="scheduleForm">
+                <input
+                  type="hidden"
+                  id="professionalId"
+                  value="<%= professional._id %>"
+                />
+                <button type="button" id="scheduleButton" class="btn btn-primary">
+                  Schedule Session
+                </button>
             </li>
             <br />
           <% }) %>
@@ -40,6 +46,18 @@
       <p>Error loading professional information.</p>
     <% } %>
   </div>
-
+  <script>
+    document.getElementById("scheduleButton").addEventListener("click", async () => {
+// Redirect the user to the Outlook Calendar login page
+window.location.href = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?" +
+"client_id=e1211f97-83b5-44a1-8d6f-983b594e2ce7" +
+"&response_type=code" +
+"&redirect_uri=https://outlook.office365.com/calendar" +
+"&response_mode=query" +
+"&scope=offline_access%20Calendars.ReadWrite" +
+"&prompt=login" +
+"&post_logout_redirect_uri=http://localhost:8080/schedule-session";
+});
+</script>
   <%- include('shared/footer.ejs') -%>
 </div>
