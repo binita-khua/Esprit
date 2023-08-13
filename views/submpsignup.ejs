@@ -1,38 +1,70 @@
-<%- include('shared/header.ejs') -%>
-<%- include('shared/nav.ejs') -%>
+<%- include('shared/header.ejs') -%> <%- include('shared/nav.ejs') -%>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <br><br>
-      <h1>SubMP Signup</h1>
-      <br><br>
-      <% if (errors && errors.length > 0) { %>
-        <div class="error">
-          <ul>
-            <% errors.forEach(error => { %>
-              <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-        </div>
-      <% } %>
-      <form action="/submpsignup" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" required>
-        <br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
-        
-        <button type="submit">Sign Up</button>
-      </form>
+  <br /><br />
+
+  <div class="video-container" style="text-align: center">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/BXFGEGO8UY0"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <div style="margin-left: 15%;">
+      <h2 style="text-align: left;">Benefits of Mental Peace Program</h2>
+      <ul style="text-align: left;">
+        <li>Reduced stress and anxiety</li>
+        <li>Enhanced emotional well-being</li>
+        <li>Improved focus and concentration</li>
+        <li>Enhanced resilience to challenges</li>
+        <li>Promotion of overall mental wellness</li>
+      </ul>
     </div>
   </div>
+
+  <h1 style="text-align: center">
+    Unlock Mental Peace with Our Special Program
+  </h1><br>
+  <p>
+    Find tranquility and inner calm through our Mental Peace program. In today's
+    fast-paced world, achieving a state of mental well-being is essential for a
+    balanced life. Our program is designed to guide you on a journey of
+    self-discovery and mindfulness, helping you alleviate stress, reduce
+    anxiety, and cultivate lasting mental peace.
+  </p>
+  <p>
+    Through a combination of meditation, relaxation techniques, and cognitive
+    exercises, our Mental Peace program empowers you with the tools to navigate
+    life's challenges with clarity and composure. Join us in embracing a
+    harmonious and serene state of mind.
+  </p>
+
+  <h1 style="text-align: center">Subscription for Mental Peace Signup</h1>
+  <% if (errors && errors.length > 0) { %>
+  <div class="error" style="text-align: center">
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+  <form action="/submpsignup" method="post" style="text-align: center">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+    <br /><br />
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required />
+    <br /><br />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+    <br /><br />
+
+    <button type="submit">Sign Up</button>
+  </form>
 </div>
 
 <%- include('shared/footer.ejs') -%>

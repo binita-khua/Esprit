@@ -1,40 +1,76 @@
-<%- include('shared/header.ejs') -%>
-<%- include('shared/nav.ejs') -%>
-
-
+<%- include('shared/header.ejs') -%> <%- include('shared/nav.ejs') -%>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <br><br>
-      <h1>SubMT Signup</h1>
-      <br><br>
-      <% if (errors && errors.length > 0) { %>
-        <div class="error">
-          <ul>
-            <% errors.forEach(error => { %>
-              <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-        </div>
-      <% } %>
-      <form action="/submtsignup" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" required>
-        <br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
-        
-        <button type="submit">Sign Up</button>
-      </form>
+  <!-- <div class="row">
+    <div class="col"> -->
+  <br /><br />
+
+  <div class="video-container">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/eqIijgUmvX8"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <div style="margin-left: 15%;">
+      <h2>Benefits of Music Therapy</h2>
+      <ul>
+        <li>Reduces stress and anxiety</li>
+        <li>Improves mood and emotional well-being</li>
+        <li>Enhances cognitive function and mental clarity</li>
+        <li>Promotes self-expression and creativity</li>
+        <li>Aids in pain management and relaxation</li>
+        <li>Strengthens interpersonal connections</li>
+      </ul>
     </div>
   </div>
+
+  <h1>Unlock the Healing Power of Music with Our Therapy Subscription</h1><br>
+  <p>
+    Experience the transformative effects of music on your well-being by
+    subscribing to our exclusive Music Therapy program. Music has the remarkable
+    ability to uplift, soothe, and heal the mind and body. Our expert therapists
+    harness this power to curate personalized musical journeys that cater to
+    your emotional and psychological needs.
+  </p>
+  <p>
+    Through carefully selected melodies, rhythms, and harmonies, our Music
+    Therapy program offers a path to relaxation, self-discovery, and
+    rejuvenation. Whether you're looking to reduce stress, enhance focus,
+    improve mood, or simply find a way to connect with yourself on a deeper
+    level, music therapy can be a powerful tool in your journey towards holistic
+    wellness.
+  </p>
+
+  <h1>Subscription for Music Therapy Signup</h1>
+  <!-- <br><br> -->
+  <% if (errors && errors.length > 0) { %>
+  <div class="error">
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+  <form action="/submtsignup" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+    <br /><br />
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required />
+    <br /><br />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+    <br /><br />
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <!-- </div>
+  </div> -->
 </div>
 
 <%- include('shared/footer.ejs') -%>

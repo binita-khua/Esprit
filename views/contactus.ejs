@@ -2,41 +2,47 @@
 <%- include('shared/nav.ejs') -%>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <br><br>
-      <h1>Contact Us</h1>
-      <br><br>
-      <% if (errors && errors.length > 0) { %>
-        <div class="error">
-          <ul>
-            <% errors.forEach(error => { %>
-              <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-        </div>
-      <% } %>
-      <form action="/contactus" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" required>
-        <br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
-        
-        <label for="query">Query:</label>
-        <textarea id="query" name="query" rows="4" required></textarea>
-        <br><br>
-        
-        <button type="submit">Submit</button>
-      </form>
+  <br><br>
+
+  <h1>Contact Us</h1><br>
+  <p>This website is developed by three dedicated and passionate students of Conestoga College who are pursuing the Computer Applications Development Course. With a shared vision of promoting mental well-being, they have embarked on a journey to create a platform that offers accessible and effective resources to help people attain a state of inner peace and tranquility.</p>
+  
+  <p>The founders believe that in today's fast-paced and stressful world, achieving mental peace is of paramount importance. Hence, they have meticulously crafted this platform to provide tools, practices, and techniques that can aid individuals in their quest for mental harmony.</p>
+
+  <p>Committed to making a positive impact, the developers have chosen to offer their service completely free of charge. Their goal is to remove any financial barriers and ensure that individuals from all walks of life can access the benefits of their platform without limitations.</p>
+
+  <p>Your feedback is invaluable to us. If you encounter any challenges while using our service or have suggestions for improvement, we encourage you to get in touch. We value your insights and constructive criticism, as it guides us in refining the quality of our website and enhancing the experience we offer.</p>
+  
+  <p>Thank you for joining us on this journey to prioritize mental well-being and spread the message of inner peace. We look forward to hearing from you and working together towards a healthier and happier world.</p>
+
+  <% if (errors && errors.length > 0) { %>
+    <div class="error">
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
     </div>
-  </div>
+  <% } %>
+  <form action="/contactus" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+    
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required>
+    <br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+    
+    <label for="query">Query:</label>
+    <textarea id="query" name="query" rows="4" required></textarea>
+    <br><br>
+    
+    <button type="submit">Submit</button>
+  </form>
 </div>
 
 <%- include('shared/footer.ejs') -%>

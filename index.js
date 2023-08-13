@@ -224,21 +224,22 @@ myApp.get("/signup", function (req, res) {
 });
 
 myApp.post("/signup", validateUsers, async (req, res) => {
-  // Validate the user input using express-validator
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
-    // If there are validation errors, render the signup form with the errors
     return res.status(422).render("signup", { errors: errors.array() });
   }
 
-  const { username, password } = req.body;
+  const { username, password, confirmPassword } = req.body;
+
+  if (password !== confirmPassword) {
+    return res.status(422).render("signup", { error: "Passwords do not match." });
+  }
 
   try {
-    // Generate a salt and hash the password using bcrypt
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create a new User document with the hashed password and save it to the database
     const newUser = new Users({
       username: username,
       password: hashedPassword,
@@ -491,15 +492,15 @@ myApp.get("/professionalsignup", function (req, res) {
 // Professional Signup Form Submission
 myApp.post("/professionalsignup", validateProfessionals, async (req, res) => {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
-    return res
-      .status(422)
-      .render("professionalsignup", { errors: errors.array() });
+    return res.status(422).render("professionalsignup", { errors: errors.array() });
   }
 
   const {
     username,
     password,
+    confirmPassword,
     name,
     phone,
     description,
@@ -507,12 +508,14 @@ myApp.post("/professionalsignup", validateProfessionals, async (req, res) => {
     specialization,
   } = req.body;
 
+  if (password !== confirmPassword) {
+    return res.status(422).render("professionalsignup", { error: "Passwords do not match." });
+  }
+
   try {
-    // Generate a salt and hash the password using bcrypt
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create a new Professional document with the hashed password and save it to the database
     const newProfessional = new Professionals({
       username: username,
       password: hashedPassword,
@@ -527,9 +530,7 @@ myApp.post("/professionalsignup", validateProfessionals, async (req, res) => {
 
     return res.status(201).redirect("/professionallogin");
   } catch (err) {
-    return res
-      .status(500)
-      .render("professionalsignup", { error: "Error creating professional." });
+    return res.status(500).render("professionalsignup", { error: "Error creating professional." });
   }
 });
 
@@ -686,7 +687,7 @@ myApp.post("/submtsignup", validateSubMT, async (req, res) => {
 
   await newSubMT.save();
 
-  return res.status(201).redirect("/submtdashboard");
+  return res.status(201).redirect("/subsuccess");
 });
 
 // Route for SubMP signup page
@@ -708,7 +709,7 @@ myApp.post("/submpsignup", validateSubMP, async (req, res) => {
 
   await newSubMP.save();
 
-  return res.status(201).redirect("/submpdashboard");
+  return res.status(201).redirect("/subsuccess");
 });
 
 // Route for SubWP signup page
@@ -730,7 +731,7 @@ myApp.post("/subwpsignup", validateSubWP, async (req, res) => {
 
   await newSubWP.save();
 
-  return res.status(201).redirect("/subwpdashboard");
+  return res.status(201).redirect("/subsuccess");
 });
 
 // Route for SubYP signup page
@@ -752,11 +753,19 @@ myApp.post("/subypsignup", validateSubYP, async (req, res) => {
 
   await newSubYP.save();
 
-  return res.status(201).redirect("/subypdashboard");
+  return res.status(201).redirect("/subsuccess");
 });
 
 myApp.get("/contactus", function (req, res) {
   res.render("contactus", { errors: [] });
+});
+
+myApp.get("/contactsuccess", function (req, res) {
+  res.render("contactsuccess", { errors: [] });
+});
+
+myApp.get("/subsuccess", function (req, res) {
+  res.render("subsuccess", { errors: [] });
 });
 
 myApp.post("/contactus", validateContactUs, async (req, res) => {
@@ -774,7 +783,7 @@ myApp.post("/contactus", validateContactUs, async (req, res) => {
 
   await newContactUs.save();
 
-  return res.status(201).redirect("/");
+  return res.status(201).redirect("/contactsuccess");
 });
 
 // Start the server

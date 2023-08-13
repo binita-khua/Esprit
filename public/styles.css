@@ -188,6 +188,7 @@ h4 {
 
 h1 {
   /* text-transform: lowercase; */
+  text-align: center;
 }
 
 h2 {
@@ -2150,4 +2151,85 @@ ul.link-list li:first-child {
   #copyright a {
     color: #a6a88f;
   }
+}
+
+form {
+  width: 100%; 
+  margin: 2% auto; 
+  padding: 20px; 
+  border: 2px solid #007294; 
+  box-sizing: border-box; 
+  text-align: center;
+}
+
+form input{
+  margin: 1% auto;
+  margin-left: 2%;
+}
+
+form input[type="text"] {
+  border: 1px solid #007294;
+  padding: 2px; 
+  /* width: 100%;  */
+  box-sizing: border-box; 
+}
+
+form input[type="password"] {
+  border: 1px solid #007294;
+  padding: 2px; 
+  /* width: 100%;  */
+  box-sizing: border-box; 
+}
+
+form input[type="email"] {
+  border: 1px solid #007294;
+  padding: 2px; 
+  /* width: 100%;  */
+  box-sizing: border-box; 
+}
+
+form input[type="number"] {
+  border: 1px solid #007294;
+  padding: 2px; 
+  /* width: 100%;  */
+  box-sizing: border-box; 
+}
+
+select {
+  border: 1px solid #007294;
+  padding: 5px; 
+  /* width: 100%;  */
+  box-sizing: border-box; 
+}
+
+textarea{
+  border: 1px solid #007294;
+  padding: 2px; 
+  /* width: 100%;  */
+  box-sizing: border-box; 
+}
+
+
+button{
+  background-image: -moz-linear-gradient(top, #008dad, #007b9d);
+  background-image: -webkit-linear-gradient(top, #008dad, #007b9d);
+  background-image: -ms-linear-gradient(top, #008dad, #007b9d);
+  background-image: linear-gradient(top, #008dad, #007b9d);
+  display: inline-block;
+  padding: 15px 25px 15px 25px;
+  background-color: #007b9d;
+  border-radius: 10px;
+  /* text-transform: lowercase; */
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  border: solid 1px #006e8b;
+  box-shadow: inset 0px 0px 0px 1px #18a8c8;
+}
+
+.video-container{
+  display: flex;
+  margin: 2%;
+  padding: 10px;
 }

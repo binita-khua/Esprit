@@ -2,37 +2,42 @@
 <%- include('shared/nav.ejs') -%>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <br><br>
-      <h1>SubWP Signup</h1>
-      <br><br>
-      <% if (errors && errors.length > 0) { %>
-        <div class="error">
-          <ul>
-            <% errors.forEach(error => { %>
-              <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-        </div>
-      <% } %>
-      <form action="/subwpsignup" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" required>
-        <br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
-        
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+  <br><br>
+  
+  <div class="video-container" style="text-align: center; justify-content: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4WV7kAUGrgI" frameborder="0" allowfullscreen></iframe>
   </div>
+
+  <h1 style="text-align: center;">The Importance of Workout on Mental Health</h1><br>
+  <p>Engaging in regular physical activity isn't just about building a strong body; it's also a crucial component of maintaining a healthy mind. Studies have shown that incorporating workouts into your routine can have profound positive effects on your mental well-being.</p>
+  <p>Physical activity stimulates the release of endorphins, which are natural mood lifters. These chemicals can help alleviate feelings of stress, anxiety, and depression. Additionally, exercise promotes better sleep, boosts self-esteem, and enhances cognitive function.</p>
+  <p>Our Workout Program isn't just about physical fitness—it's about achieving a holistic sense of wellness. By participating in our program, you'll not only strengthen your body but also uplift your spirits and foster a positive outlook on life.</p>
+
+  <h1 style="text-align: center;">Subscription for Workout Program Signup</h1>
+  <% if (errors && errors.length > 0) { %>
+    <div class="error" style="text-align: center;">
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+  <form action="/subwpsignup" method="post" style="text-align: center;">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+    
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required>
+    <br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+    
+    <button type="submit">Sign Up</button>
+  </form>
 </div>
 
 <%- include('shared/footer.ejs') -%>

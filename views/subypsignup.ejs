@@ -2,37 +2,51 @@
 <%- include('shared/nav.ejs') -%>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <br><br>
-      <h1>SubYP Signup</h1>
-      <br><br>
-      <% if (errors && errors.length > 0) { %>
-        <div class="error">
-          <ul>
-            <% errors.forEach(error => { %>
-              <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-        </div>
-      <% } %>
-      <form action="/subypsignup" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" required>
-        <br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
-        
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+  <br><br>
+
+  <div class="video-container" style="text-align: center; justify-content: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/CU3HuPNsyG4" frameborder="0" allowfullscreen></iframe>
   </div>
+
+  <h1 style="text-align: center;">Experience Inner Harmony with our Yoga Program</h1><br>
+  <p>Embark on a journey of self-discovery and holistic well-being through our Yoga Program. Rooted in ancient traditions, yoga offers a path to physical, mental, and spiritual alignment. Our program guides you through various yoga practices that enhance flexibility, balance, and inner peace.</p>
+  <p>Whether you're a beginner or an experienced yogi, our classes cater to all levels. Cultivate mindfulness, reduce stress, and embrace a state of tranquility as you connect with your body and breath. Join us on the mat and experience the transformative power of yoga.</p>
+
+  <h2 style="text-align: center;">Benefits of Yoga</h2>
+  <ul style="text-align: center;">
+    <li>Improved flexibility and strength</li>
+    <li>Enhanced posture and body awareness</li>
+    <li>Reduced stress and anxiety</li>
+    <li>Increased mental clarity and focus</li>
+    <li>Promotion of relaxation and inner peace</li>
+    <li>Boosted energy and vitality</li>
+  </ul>
+
+  <h1 style="text-align: center;">Subscription for Yoga Program Signup</h1>
+  <% if (errors && errors.length > 0) { %>
+    <div class="error" style="text-align: center;">
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+  <form action="/subypsignup" method="post" style="text-align: center;">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+    
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required>
+    <br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+    
+    <button type="submit">Sign Up</button>
+  </form>
 </div>
 
 <%- include('shared/footer.ejs') -%>
