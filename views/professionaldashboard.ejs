@@ -20,13 +20,17 @@
         <h2>Users Assigned to You</h2>
         <ul>
           <% assignedUsers.forEach(user => { %>
+            <div class="row">
+            <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body" style="border: 2px solid #007294; padding: 10px; text-align: center;">
             <li>
               <p><strong>Username:</strong> <%= user.username %></p>
               <p><strong>Email:</strong> <%= user.email %></p>
               <p><strong>Gender:</strong> <%= user.gender %></p>
               <p><strong>Age:</strong> <%= user.age %></p>
               <p><strong>Description:</strong> <%= user.description %></p>
-              <form id="scheduleForm">
+              <form id="scheduleForm" style="border: none;">
                 <input
                   type="hidden"
                   id="professionalId"
@@ -36,6 +40,10 @@
                   Schedule Session
                 </button>
             </li>
+            </div>
+            </div>
+            </div>
+            </div>
             <br />
           <% }) %>
         </ul>
