@@ -2,7 +2,7 @@
 
 ## Overview
 
-Esprit is a comprehensive mental health consulting platform designed to provide accessible support and a range of well-being options. It integrates chat and video counseling, leveraging Google Meet, and features a community forum for mutual support and empowerment.
+Esprit is a comprehensive mental health consulting platform designed to provide accessible support and a range of well-being options. It integrates chat and video counseling, leveraging MicroSoft Teams, and features a community forum for mutual support and empowerment.
 
 ## Features
 
